@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Видеопродакшн</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #111, #222, #111);
+      padding: 20px;
+      text-align: center;
+      animation: glowBg 6s infinite linear;
+    }
+
+    @keyframes glowBg {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff6;
+      text-shadow: 0 0 8px #ff0, 0 0 16px #f80;
+    }
+
+    .phone {
+      color: orange;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 40px 20px;
+      animation: fadeUp 1s ease-out;
+    }
+
+    .hero img {
+      max-width: 1000px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.6s, box-shadow 0.6s;
+    }
+    .hero img:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 0 25px #ff0, 0 0 50px #f0f, 0 0 100px #0ff;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin: 20px 0 10px;
+      background: linear-gradient(90deg, #ff0, #f0f, #0ff, #ff0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 300%;
+      animation: gradientMove 6s infinite linear;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    /* SERVICES */
+    .services {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #1a1a1a;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    .service {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 12px;
+      width: 300px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: 0.5s;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s forwards;
+    }
+
+    .service:nth-child(1) { animation-delay: 0.3s; }
+    .service:nth-child(2) { animation-delay: 0.6s; }
+    .service:nth-child(3) { animation-delay: 0.9s; }
+
+    .service:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 20px #0ff, 0 0 40px #f0f;
+    }
+
+    .service img {
+      width: 100%;
+      border-radius: 10px;
+      transition: 0.5s;
+      margin-bottom: 10px;
+    }
+    .service img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+
+    .service button {
+      background: linear-gradient(90deg, #ff0, #f80, #f0f);
+      border: none;
+      padding: 12px 24px;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 25px;
+      box-shadow: 0 0 10px #ff0, 0 0 20px #f0f;
+      transition: 0.3s;
+    }
+    .service button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ff0, 0 0 40px #f0f, 0 0 60px #0ff;
+    }
+
+    /* SECTIONS */
+    .section-centered {
+      padding: 30px 20px;
+      background-color: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s forwards;
+    }
+
+    .section-centered img {
+      max-width: 1000px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.5s;
+    }
+    .section-centered img:hover {
+      transform: scale(1.03);
+    }
+
+    .section-centered button {
+      background-color: orange;
+      border: none;
+      padding: 10px 20px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .section-centered button:hover {
+      background-color: #ffb84d;
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      border-top: 2px solid #333;
+      animation: neonPulse 3s infinite alternate;
+    }
+
+    footer nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    footer nav a:hover {
+      color: orange;
+    }
+
+    @keyframes neonPulse {
+      from { box-shadow: 0 0 10px #f0f, 0 0 20px #0ff; }
+      to { box-shadow: 0 0 30px #ff0, 0 0 60px #f0f; }
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Услуги</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="phone">8 800 700 30 30</div>
+    <div class="hero">
+      <img src="https://images.pexels.com/photos/2752007/pexels-photo-2752007.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1000" alt="Креативное видео">
+      <h1>СНИМЕМ ДЛЯ ВАС КРЕАТИВНОЕ ВИДЕО</h1>
+      <p>Профессиональная видеосъемка для вашего бизнеса и мероприятий</p>
+    </div>
+  </header>
+
+  <section class="services">
+    <div class="service">
+      <img src="https://images.pexels.com/photos/7096/people-office-group-team.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=600" alt="Реклама">
+      <h2>Реклама</h2>
+      <p>Создание рекламных роликов для ТВ и интернета</p>
+      <button>Подробнее</button>
+    </div>
+    <div class="service">
+      <img src="https://images.pexels.com/photos/1647169/pexels-photo-1647169.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=600" alt="Видео-клип">
+      <h2>Видео-клип</h2>
+      <p>Съемка музыкальных клипов для артистов и групп</p>
+      <button>Подробнее</button>
+    </div>
+    <div class="service">
+      <img src="https://images.pexels.com/photos/265947/pexels-photo-265947.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=600" alt="Свадьба">
+      <h2>Свадьба</h2>
+      <p>Профессиональная съемка свадебных мероприятий</p>
+      <button>Подробнее</button>
+    </div>
+  </section>
+
+  <section class="section-centered">
+    <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1000" alt="Новости и акции">
+    <h2>НОВОСТИ И АКЦИИ</h2>
+    <ul>
+      <li>Снимем ваш клип на 50% дешевле</li>
+      <li>Свадебное видео со скидкой 30%</li>
+    </ul>
+  </section>
+
+  <section class="section-centered">
+    <img src="https://images.pexels.com/photos/1181356/pexels-photo-1181356.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1000" alt="Наша команда">
+    <h2>О НАС</h2>
+    <p>Мы — команда профессионалов, специализирующихся на создании видео для бизнеса, мероприятий и артистов. Работаем по всей стране и гарантируем качество и креативный подход.</p>
+    <button>Подробнее</button>
+  </section>
+
+  <footer>
+    <div class="phone">8 800 700 30 30</div>
+    <nav>
+      <a href="#">Главная</a> |
+      <a href="#">О нас</a> |
+      <a href="#">Услуги</a> |
+      <a href="#">Контакты</a>
+    </nav>
+  </footer>
+</body>
+</html>
